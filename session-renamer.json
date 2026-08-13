@@ -1,0 +1,5 @@
+{
+  "model": "zen/deepseek-v4-flash",
+  "minMessageLength": 5,
+  "debug": false
+}

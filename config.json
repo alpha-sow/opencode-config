@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/big-pickle",
+  "small_model": "opencode/deepseek-v4-flash",
+  "autoupdate": true,
+  "share": "disabled",
+  "permission": {
+    "*": "allow",
+    "bash": {
+      "rm -rf *": "deny",
+      "rm -rf /": "deny",
+      "git push --force": "deny",
+      "*": "ask"
+    }
+  }
+}
