@@ -1,6 +1,40 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
+  "agent": {
+    "planner": {
+      "model": "alibaba/qwen3.7-plus",
+      "mode": "subagent",
+      "tools": {
+        "write": false,
+        "bash": false
+      }
+    },
+    "coder": {
+      "model": "alibaba/qwen3-coder-plus",
+      "mode": "subagent",
+      "tools": {
+        "write": true,
+        "bash": true
+      }
+    },
+    "explore": {
+      "model": "opencode/deep-seek-v4-flash",
+      "mode": "subagent",
+      "tools": {
+        "write": false,
+        "bash": false
+      }
+    },
+    "reviewer": {
+      "model": "opencode/big-pickle",
+      "mode": "subagent",
+      "tools": {
+        "write": false,
+        "bash": false
+      }
+    }
+  },
   "mcp": {
     "context7": {
       "type": "remote",
@@ -9,44 +43,45 @@
       "headers": {
         "CONTEXT7_API_KEY": "ctx7sk-5c02f211-d065-49e3-8ffa-8397562ec177"
       }
+    },
+    "repomix": {
+      "type": "local",
+      "command": ["npx", "-y", "repomix", "--mcp"],
+      "enabled": true
     }
   },
-  // OpenCode Quota: tuiCommandDisplay chooses whether native TUI command output appears in the session transcript or a local popup dialog.
-  // OpenCode Quota: loads the server plugin for slash commands and quota checks.
+  "lsp": {
+    "typescript-lsp": {
+      "command": ["typescript-language-server", "--stdio"],
+      "extensions": [".ts", ".tsx", ".js", ".jsx"]
+    },
+    "dart-lsp": {
+      "command": ["dart", "language-server"],
+      "extensions": [".dart"]
+    },
+    "java-lsp": {
+      "command": ["jdtls"],
+      "extensions": [".java"]
+    },
+    "kotlin-lsp": {
+      "command": ["kotlin-language-server"],
+      "extensions": [".kt", ".kts"]
+    },
+    "swift-lsp": {
+      "command": ["xcrun", "sourcekit-lsp"],
+      "extensions": [".swift"]
+    }
+  },
   "plugin": [
     "@tarquinen/opencode-dcp@latest",
     "opencode-session-renamer",
-    "@slkiser/opencode-quota@latest"
+    "@slkiser/opencode-quota@latest",
+    "DietrichGebert/ponytail"
   ],
   "provider": {
-    // Detected openrouter authentication; opencode-quota added this global provider declaration.
     "openrouter": {},
-    // Detected alibaba-coding-plan authentication; opencode-quota added this global provider declaration.
     "alibaba-coding-plan": {},
-    // Detected copilot authentication; opencode-quota added this global provider declaration.
-    "copilot": {},
-    // ollama
-    "ollama": {
-      "type": "openai",
-      "name": "Ollama Local",
-      "options": {
-        "baseURL": "http://127.0.0.1:11434/v1"
-      },
-      "models": {
-        "qwen3.5-ultra": {
-          "name": "Qwen 3.5 Ultra (Local)"
-        },
-        "qwen3.5-ultra:latest": {
-          "name": "Qwen 3.5 Ultra (Local)"
-        },
-        "opencoder": {
-          "name": "OpenCoder (Local)"
-        },
-        "opencoder:latest": {
-          "name": "OpenCoder (Local)"
-        }
-      }
-    }
+    "copilot": {}
   },
   "instructions": [
     "CONTRIBUTING.md",
