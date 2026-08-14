@@ -84,9 +84,6 @@
     "copilot": {}
   },
   "instructions": [
-    "CONTRIBUTING.md",
-    "docs/guidelines.md",
-    ".opencode/rules/*.md",
-    "~/.config/opencode/rules/*.md"
+    ".opencode/rules/*.md"
   ]
 }
