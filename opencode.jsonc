@@ -76,7 +76,8 @@
     "@tarquinen/opencode-dcp@latest",
     "opencode-session-renamer",
     "@slkiser/opencode-quota@latest",
-    "DietrichGebert/ponytail"
+    "DietrichGebert/ponytail",
+    "opencode-wakatime"
   ],
   "provider": {
     "openrouter": {},
