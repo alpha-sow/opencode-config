@@ -3,7 +3,7 @@
   "default_agent": "plan",
   "agent": {
     "planner": {
-      "model": "alibaba-coding-plan/qwen3.7-plus",
+      "model": "{env:OPENCODE_PLANNER_MODEL}",
       "mode": "subagent",
       "tools": {
         "write": false,
@@ -11,7 +11,7 @@
       }
     },
     "coder": {
-      "model": "alibaba-coding-plan/qwen3-coder-plus",
+      "model": "{env:OPENCODE_CODER_MODEL}",
       "mode": "subagent",
       "tools": {
         "write": true,
@@ -19,7 +19,7 @@
       }
     },
     "explore": {
-      "model": "alibaba-coding-plan/qwen3.6-flash",
+      "model": "{env:OPENCODE_EXPLORE_MODEL}",
       "mode": "subagent",
       "tools": {
         "write": false,
@@ -27,7 +27,7 @@
       }
     },
     "reviewer": {
-      "model": "opencode/big-pickle",
+      "model": "{env:OPENCODE_REVIEWER_MODEL}",
       "mode": "subagent",
       "tools": {
         "write": false,
