@@ -3,7 +3,7 @@
   "default_agent": "plan",
   "agent": {
     "planner": {
-      "model": "opencode/deep-seek-v4-flash",
+      "model": "alibaba-coding-plan/qwen3.7-plus",
       "mode": "subagent",
       "tools": {
         "write": false,
@@ -11,7 +11,7 @@
       }
     },
     "coder": {
-      "model": "opencode/big-pickle",
+      "model": "alibaba-coding-plan/qwen3-coder-plus",
       "mode": "subagent",
       "tools": {
         "write": true,
@@ -19,7 +19,7 @@
       }
     },
     "explore": {
-      "model": "opencode/deep-seek-v4-flash",
+      "model": "alibaba-coding-plan/qwen3.6-flash",
       "mode": "subagent",
       "tools": {
         "write": false,
