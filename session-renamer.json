@@ -1,5 +1,5 @@
 {
-  "model": "zen/deepseek-v4-flash",
-  "minMessageLength": 5,
+  "model": "{env:OPENCODE_SESSION_RENAMER_MODEL}",
+  "minMessageLength": 10,
   "debug": false
 }
