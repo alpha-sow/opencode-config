@@ -84,7 +84,22 @@
   "provider": {
     "openrouter": {},
     "alibaba-coding-plan": {},
-    "copilot": {}
+    "copilot": {},
+    // Detected openai authentication; opencode-quota added this global provider declaration.
+    "openai": {},
+    // Ollama local model provider
+    "ollama": {
+      "npm": "@ai-sdk/openai",
+      "options": {
+        "baseURL": "http://localhost:11434/v1",
+        "apiKey": "ollama"
+      },
+      "models": {
+        "gpt-oss:latest": {
+          "name": "GPT-OSS Local"
+        }
+      }
+    }
   },
   "instructions": [
     ".opencode/rules/*.md"
