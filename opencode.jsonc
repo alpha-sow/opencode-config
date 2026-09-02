@@ -99,7 +99,9 @@
           "name": "GPT-OSS Local"
         }
       }
-    }
+    },
+    // Detected xai authentication; opencode-quota added this global provider declaration.
+    "xai": {}
   },
   "instructions": [
     ".opencode/rules/*.md"
