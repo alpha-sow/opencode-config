@@ -4,6 +4,14 @@
   "small_model": "{env:OPENCODE_SMALL_MODEL}",
   "default_agent": "build",
   "agent": {
+    "explainer": {
+      "model": "{env:OPENCODE_EXPLAINER_MODEL}",
+      "mode": "subagent",
+      "tools": {
+        "write": false,
+        "bash": false
+      }
+    },
     "planner": {
       "model": "{env:OPENCODE_PLANNER_MODEL}",
       "mode": "subagent",
@@ -25,7 +33,7 @@
       "mode": "subagent",
       "tools": {
         "write": false,
-        "bash": false
+        "bash": true
       }
     },
     "reviewer": {
@@ -33,7 +41,7 @@
       "mode": "subagent",
       "tools": {
         "write": false,
-        "bash": false
+        "bash": true
       }
     }
   },
