@@ -20,8 +20,8 @@
         "bash": true
       }
     },
-    "explore": {
-      "model": "{env:OPENCODE_EXPLORE_MODEL}",
+    "explorer": {
+      "model": "{env:OPENCODE_EXPLORER_MODEL}",
       "mode": "subagent",
       "tools": {
         "write": false,
