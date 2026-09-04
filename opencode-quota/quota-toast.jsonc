@@ -9,7 +9,8 @@
   // Provider selection: "auto" detects providers; an array tracks only listed providers.
   "enabledProviders": [
     "openai",
-    "quota-providers"
+    "quota-providers",
+    "copilot"
   ],
   // Quota presentation and reset-period choices.
   "formatStyle": "allWindows",
