@@ -7,7 +7,10 @@
   // Session token totals: "current" session only, or "tree" including descendants.
   "sessionTokenScope": "current",
   // Provider selection: "auto" detects providers; an array tracks only listed providers.
-  "enabledProviders": "auto",
+  "enabledProviders": [
+    "openai",
+    "quota-providers"
+  ],
   // Quota presentation and reset-period choices.
   "formatStyle": "allWindows",
   "percentDisplayMode": "remaining",
@@ -19,5 +22,49 @@
   "maintainerAnnouncements": {
     "enabled": true,
     "home": true
-  }
+  },
+  // Ordered global-only definitions. Stable ids control state, cache, and provenance.
+  "quotaProviders": [
+    {
+      // Stable definition id; also the OpenCode provider id by default.
+      "id": "openrouter-spend",
+      // OpenCode provider id because it differs from the stable definition id.
+      "providerId": "openrouter",
+      "label": "openRouter",
+      // Exactly one acquisition mode: remote-api or local-estimate.
+      "mode": "remote-api",
+      // Fixed authenticated GET endpoint. HTTPS is required except on loopback.
+      "url": "https://openrouter.ai/api/v1/credits",
+      // Environment variable name only. The command never writes its secret value.
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      // Safe response contract: quota-v1, json-v1, or openrouter-key-v1.
+      "format": "json-v1",
+      "adapter": {
+        "mappings": [
+          {
+            "resultType": "budget",
+            "name": "OpenRouter Credits",
+            "label": "Remaining",
+            "unit": "USD",
+            "unitPosition": "suffix",
+            "metric": {
+              "type": "spend-budget",
+              "spend": {
+                "path": [
+                  "data",
+                  "total_usage"
+                ]
+              },
+              "budget": {
+                "path": [
+                  "data",
+                  "total_credits"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
