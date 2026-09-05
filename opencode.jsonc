@@ -1,5 +1,18 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "formatter": {
+    "prettier": {
+      "command": ["npx", "prettier", "--write", "$FILE"],
+      "environment": {
+        "NODE_ENV": "development"
+      },
+      "extensions": [".js", ".ts", ".jsx", ".tsx"]
+    },
+    "spotless": {
+      "command": ["./gradlew", "spotlessApply"],
+      "extensions": [".java", ".kt", ".kts"]
+    }
+  },
   "model": "{env:OPENCODE_DEFAULT_MODEL}",
   "small_model": "{env:OPENCODE_SMALL_MODEL}",
   "default_agent": "build",
@@ -58,6 +71,19 @@
       "type": "local",
       "command": ["npx", "-y", "repomix", "--mcp"],
       "enabled": true
+    },
+    "tavily": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "tavily-mcp"],
+      "environment": {
+        "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
+      }
+    },
+    "fetch": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "mcp-fetch-server"]
     }
   },
   "lsp": {
