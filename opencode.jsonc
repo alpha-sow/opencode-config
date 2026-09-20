@@ -20,6 +20,7 @@
     "explainer": {
       "model": "{env:OPENCODE_EXPLAINER_MODEL}",
       "mode": "subagent",
+      "temperature": 0.3,
       "tools": {
         "write": false,
         "bash": false
@@ -28,6 +29,7 @@
     "planner": {
       "model": "{env:OPENCODE_PLANNER_MODEL}",
       "mode": "subagent",
+      "temperature": 0.2,
       "tools": {
         "write": false,
         "bash": false
@@ -36,6 +38,7 @@
     "coder": {
       "model": "{env:OPENCODE_CODER_MODEL}",
       "mode": "subagent",
+      "temperature": 0.1,
       "tools": {
         "write": true,
         "bash": true
@@ -44,6 +47,7 @@
     "explorer": {
       "model": "{env:OPENCODE_EXPLORER_MODEL}",
       "mode": "subagent",
+      "temperature": 0.1,
       "tools": {
         "write": false,
         "bash": true
@@ -52,6 +56,7 @@
     "reviewer": {
       "model": "{env:OPENCODE_REVIEWER_MODEL}",
       "mode": "subagent",
+      "temperature": 0.0,
       "tools": {
         "write": false,
         "bash": true
