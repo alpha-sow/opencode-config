@@ -17,6 +17,9 @@
   "small_model": "{env:OPENCODE_SMALL_MODEL}",
   "default_agent": "build",
   "agent": {
+    "explore": {
+      "disable": true
+    },
     "explainer": {
       "model": "{env:OPENCODE_EXPLAINER_MODEL}",
       "mode": "subagent",
