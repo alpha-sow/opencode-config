@@ -20,12 +20,15 @@ Configuration repository for OpenCode in this workspace.
 ## Example `.zshrc`
 
 ```sh
-export OPENCODE_DEFAULT_MODEL="openai/gpt-5.4-mini"
-export OPENCODE_SMALL_MODEL="openai/gpt-5.4-mini"
-export OPENCODE_EXPLAINER_MODEL="openai/gpt-5.4-mini"
-export OPENCODE_PLANNER_MODEL="openai/gpt-5.4-mini"
-export OPENCODE_CODER_MODEL="openai/gpt-5.4-mini"
-export OPENCODE_EXPLORER_MODEL="openai/gpt-5.4-mini"
-export OPENCODE_REVIEWER_MODEL="openai/gpt-5.4-mini"
-export OPENCODE_SESSION_RENAMER_MODEL="openai/gpt-5.4-mini"
+# Main Orchestrator & Utility System Models
+export OPENCODE_DEFAULT_MODEL="openai/gpt-5.6-luna"
+export OPENCODE_SMALL_MODEL="ollama/gpt-oss:latest"
+export OPENCODE_SESSION_RENAMER_MODEL="ollama/gpt-oss:latest"
+
+# Specialized Sub-Agents
+export OPENCODE_EXPLORER_MODEL="openrouter/deepseek/deepseek-v4-flash-0731"
+export OPENCODE_EXPLAINER_MODEL="openai/gpt-5.6-luna"
+export OPENCODE_PLANNER_MODEL="openai/gpt-5.6-sol"
+export OPENCODE_CODER_MODEL="openai/gpt-5.6-sol"
+export OPENCODE_REVIEWER_MODEL="openai/gpt-5.6-terra"
 ```
