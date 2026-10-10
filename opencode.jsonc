@@ -150,11 +150,10 @@
     }
   },
   "plugins": [
-    "@tarquinen/opencode-dcp@latest",
-    "opencode-session-renamer",
-    "@slkiser/opencode-quota@latest",
-    "DietrichGebert/ponytail",
-    "opencode-wakatime"
+    "@tarquinen/opencode-dcp@3.2.0",
+    "@slkiser/opencode-quota@5.0.2",
+    "@dietrichgebert/ponytail@5.1.0",
+    "opencode-wakatime@1.4.0"
   ],
   "providers": {
     "openrouter": {},
