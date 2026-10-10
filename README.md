@@ -5,9 +5,8 @@ Configuration repository for OpenCode in this workspace.
 ## Key Files
 
 - `opencode.jsonc`: core OpenCode settings, models, agents, MCP servers, and instructions.
-- `config.json`: permissions and global runtime settings.
+- `cli.json`: terminal/CLI (V2) settings.
 - `dcp.jsonc`: dynamic context pruning settings.
-- `tui.jsonc`: TUI plugins.
 - `session-renamer.json`: session naming settings.
 - `agents/*.md`: agent definitions and behavior notes.
 - `plugins/rtk.ts`: command rewrite plugin for `rtk`.

@@ -14,84 +14,117 @@
     }
   },
   "model": "{env:OPENCODE_DEFAULT_MODEL}",
-  "small_model": "{env:OPENCODE_SMALL_MODEL}",
   "default_agent": "build",
-  "agent": {
+  "update": "auto",
+  "share": "disabled",
+  "permissions": [
+    { "action": "*", "resource": "*", "effect": "allow" },
+    { "action": "shell", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "rm -rf *", "effect": "deny" },
+    { "action": "shell", "resource": "rm -rf /", "effect": "deny" },
+    { "action": "shell", "resource": "git push --force", "effect": "deny" }
+  ],
+  "agents": {
     "explore": {
-      "disable": true
+      "disabled": true
     },
     "explainer": {
       "model": "{env:OPENCODE_EXPLAINER_MODEL}",
       "mode": "subagent",
-      "temperature": 0.3,
-      "tools": {
-        "write": false,
-        "bash": false
-      }
+      "request": {
+        "body": {
+          "temperature": 0.3
+        }
+      },
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "deny" }
+      ]
     },
     "planner": {
       "model": "{env:OPENCODE_PLANNER_MODEL}",
       "mode": "subagent",
-      "temperature": 0.2,
-      "tools": {
-        "write": false,
-        "bash": false
-      }
+      "request": {
+        "body": {
+          "temperature": 0.2
+        }
+      },
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "deny" }
+      ]
     },
     "coder": {
       "model": "{env:OPENCODE_CODER_MODEL}",
       "mode": "subagent",
-      "temperature": 0.1,
-      "tools": {
-        "write": true,
-        "bash": true
-      }
+      "request": {
+        "body": {
+          "temperature": 0.1
+        }
+      },
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "allow" },
+        { "action": "shell", "resource": "*", "effect": "allow" }
+      ]
     },
     "explorer": {
       "model": "{env:OPENCODE_EXPLORER_MODEL}",
       "mode": "subagent",
-      "temperature": 0.1,
-      "tools": {
-        "write": false,
-        "bash": true
-      }
+      "request": {
+        "body": {
+          "temperature": 0.1
+        }
+      },
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "allow" }
+      ]
     },
     "reviewer": {
       "model": "{env:OPENCODE_REVIEWER_MODEL}",
       "mode": "subagent",
-      "temperature": 0.0,
-      "tools": {
-        "write": false,
-        "bash": true
-      }
+      "request": {
+        "body": {
+          "temperature": 0
+        }
+      },
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "allow" }
+      ]
+    },
+    "title": {
+      "model": "{env:OPENCODE_SMALL_MODEL}"
     }
   },
   "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "enabled": true,
-      "headers": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+    "servers": {
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "headers": {
+          "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+        },
+        "disabled": false
+      },
+      "repomix": {
+        "type": "local",
+        "command": ["npx", "-y", "repomix", "--mcp"],
+        "disabled": false
+      },
+      "tavily": {
+        "type": "local",
+        "command": ["npx", "-y", "tavily-mcp"],
+        "environment": {
+          "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
+        },
+        "disabled": false
+      },
+      "fetch": {
+        "type": "local",
+        "command": ["npx", "-y", "mcp-fetch-server"],
+        "disabled": false
       }
-    },
-    "repomix": {
-      "type": "local",
-      "command": ["npx", "-y", "repomix", "--mcp"],
-      "enabled": true
-    },
-    "tavily": {
-      "type": "local",
-      "enabled": true,
-      "command": ["npx", "-y", "tavily-mcp"],
-      "environment": {
-        "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
-      }
-    },
-    "fetch": {
-      "type": "local",
-      "enabled": true,
-      "command": ["npx", "-y", "mcp-fetch-server"]
     }
   },
   "lsp": {
@@ -116,21 +149,21 @@
       "extensions": [".swift"]
     }
   },
-  "plugin": [
+  "plugins": [
     "@tarquinen/opencode-dcp@latest",
     "opencode-session-renamer",
     "@slkiser/opencode-quota@latest",
     "DietrichGebert/ponytail",
     "opencode-wakatime"
   ],
-  "provider": {
+  "providers": {
     "openrouter": {},
     // Detected openai authentication; opencode-quota added this global provider declaration.
     "openai": {},
     // Ollama local model provider
     "ollama": {
-      "npm": "@ai-sdk/openai",
-      "options": {
+      "package": "aisdk:@ai-sdk/openai",
+      "settings": {
         "baseURL": "http://localhost:11434/v1",
         "apiKey": "ollama"
       },
