@@ -1,0 +1,80 @@
+// OpenCode Quota server settings, converted on 2026-10-31 from:
+//   /Users/alphasow/.config/opencode/opencode-quota/quota-toast.jsonc
+// The old file was left in place; OpenCode Quota no longer reads it.
+// Only the settings you chose there are here; a missing key uses its default.
+// Every setting and its default: https://github.com/slkiser/opencode-quota/blob/main/docs/readme/configuration.md
+{
+  "version": 6,
+  "sidebar": {
+    "show": true,
+    "sessionTokens": false
+  },
+  "toast": {
+    "show": false,
+    "sessionTokens": false
+  },
+  "words": {
+    "percent": "left",
+    "sessionTokens": "current"
+  },
+  "providers": {
+    "off": [
+      "anthropic",
+      "openrouter",
+      "cursor",
+      "alibaba-coding-plan",
+      "alibaba-token-plan",
+      "google-gemini-cli",
+      "google-agy",
+      "zai",
+      "zhipu",
+      "minimax-coding-plan",
+      "minimax-china-coding-plan",
+      "kimi-code-plan-global",
+      "kimi-code-plan-cn",
+      "deepseek",
+      "xai",
+      "xiaomi",
+      "opencode-go",
+      "opencode",
+      "ollama-cloud"
+    ],
+    "custom": [
+      {
+        "id": "openrouter-spend",
+        "providerId": "openrouter",
+        "label": "openRouter",
+        "mode": "remote-api",
+        "url": "https://openrouter.ai/api/v1/credits",
+        "apiKeyEnv": "OPENROUTER_API_KEY",
+        "format": "json-v1",
+        "adapter": {
+          "mappings": [
+            {
+              "resultType": "budget",
+              "name": "OpenRouter Credits",
+              "label": "Remaining",
+              "unit": "USD",
+              "unitPosition": "suffix",
+              "metric": {
+                "type": "spend-budget",
+                "spend": {
+                  "path": [
+                    "data",
+                    "total_usage"
+                  ]
+                },
+                "budget": {
+                  "path": [
+                    "data",
+                    "total_credits"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

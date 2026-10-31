@@ -151,7 +151,7 @@
   },
   "plugins": [
     "@tarquinen/opencode-dcp@3.2.0",
-    "@slkiser/opencode-quota@5.0.2",
+    "@slkiser/opencode-quota@6.0.0",
     "@dietrichgebert/ponytail@5.1.0",
     "opencode-wakatime@1.4.0"
   ],
