@@ -99,11 +99,24 @@
   },
   "mcp": {
     "servers": {
+      "rydmike-flex_color_scheme_docs": {
+        "type": "remote",
+        "url": "https://docs.flexcolorscheme.com/mcp"
+      },
       "context7": {
         "type": "remote",
         "url": "https://mcp.context7.com/mcp",
         "headers": {
           "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+        },
+        "disabled": false
+      },
+      "sonar": {
+        "type": "remote",
+        "url": "{env:SONARQUBE_MCP_URL}",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:SONARQUBE_TOKEN}"
         },
         "disabled": false
       },
@@ -175,5 +188,9 @@
   },
   "instructions": [
     "~/.config/opencode/rules/*.md"
-  ]
+  ],
+  "provider": {
+    // Detected copilot authentication; opencode-quota added this global provider declaration.
+    "copilot": {}
+  }
 }
