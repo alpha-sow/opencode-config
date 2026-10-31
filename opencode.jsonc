@@ -28,6 +28,11 @@
     "explore": {
       "disabled": true
     },
+    "plan": {
+      "permissions": [
+        { "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
+    },
     "explainer": {
       "model": "{env:OPENCODE_EXPLAINER_MODEL}",
       "mode": "subagent",

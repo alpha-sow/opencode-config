@@ -63,6 +63,12 @@ The user does NOT need to explicitly mention an agent for delegation to occur.
 
 Do NOT delegate trivial questions, explanations, configuration lookups, simple documentation questions, or tasks that can be answered reliably without inspecting or modifying an existing repository.
 
+## Plan Mode Restriction
+
+The Plan agent/mode MUST NOT call or launch any subagent (`subagent` is denied for `plan` in `opencode.jsonc`).
+
+If delegation is required while in Plan mode, switch back to the normal/build mode (or another non-Plan primary agent) before delegating.
+
 # Agent Responsibility Boundaries
 
 Each specialized agent owns a distinct engineering responsibility.

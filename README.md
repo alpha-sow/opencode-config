@@ -15,6 +15,7 @@ Configuration repository for OpenCode in this workspace.
 
 - This repo is config-only, not an application codebase.
 - `package-lock.json` is present, so npm is the package manager of record.
+- The Plan mode/agent cannot call subagents: `opencode.jsonc` denies `subagent` on `*` for `plan` (see also `AGENTS.md`). To delegate, switch back to Build mode or another non-Plan primary agent.
 
 ## Example `.zshrc`
 
