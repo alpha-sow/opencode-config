@@ -33,6 +33,13 @@
         { "action": "subagent", "resource": "*", "effect": "deny" }
       ]
     },
+    "chat": {
+      "description": "Chats and acts directly, without delegating to subagents.",
+      "mode": "primary",
+      "permissions": [
+        { "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
+    },
     "explainer": {
       "model": "{env:OPENCODE_EXPLAINER_MODEL}",
       "mode": "subagent",
