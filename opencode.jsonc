@@ -37,6 +37,11 @@
     "chat": {
       "description": "Chats and acts directly, without delegating to subagents.",
       "mode": "primary",
+      "request": {
+        "body": {
+          "temperature": 0.3
+        }
+      },
       "permissions": [
         { "action": "subagent", "resource": "*", "effect": "deny" }
       ]
