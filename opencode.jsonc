@@ -29,6 +29,7 @@
       "disabled": true
     },
     "plan": {
+      "description": "Analyzes requests and prepares an action plan without delegating to subagents.",
       "permissions": [
         { "action": "subagent", "resource": "*", "effect": "deny" }
       ]
@@ -41,6 +42,7 @@
       ]
     },
     "explainer": {
+      "description": "Explains code structure, logic, and architecture without modifying anything.",
       "model": "{env:OPENCODE_EXPLAINER_MODEL}",
       "mode": "subagent",
       "request": {
@@ -54,6 +56,7 @@
       ]
     },
     "planner": {
+      "description": "Designs technical plans, architecture, and breakdowns of complex tasks.",
       "model": "{env:OPENCODE_PLANNER_MODEL}",
       "mode": "subagent",
       "request": {
@@ -67,6 +70,7 @@
       ]
     },
     "coder": {
+      "description": "Implements features, fixes, refactorings, and related tests.",
       "model": "{env:OPENCODE_CODER_MODEL}",
       "mode": "subagent",
       "request": {
@@ -80,6 +84,7 @@
       ]
     },
     "explorer": {
+      "description": "Explores the repository: searches files, symbols, dependencies, and conventions.",
       "model": "{env:OPENCODE_EXPLORER_MODEL}",
       "mode": "subagent",
       "request": {
@@ -93,6 +98,7 @@
       ]
     },
     "reviewer": {
+      "description": "Code review: defects, security, regressions, and acceptance criteria.",
       "model": "{env:OPENCODE_REVIEWER_MODEL}",
       "mode": "subagent",
       "request": {
