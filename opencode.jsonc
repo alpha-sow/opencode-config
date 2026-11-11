@@ -122,6 +122,14 @@
   },
   "mcp": {
     "servers": {
+       "redmine": {
+        "type": "local",
+        "command": [
+          "/Users/alphasow/redmine-mcp/.venv/bin/python",
+          "/Users/alphasow/redmine-mcp/server.py"
+        ],
+        "enabled": true
+      },
       "rydmike-flex_color_scheme_docs": {
         "type": "remote",
         "url": "https://docs.flexcolorscheme.com/mcp"

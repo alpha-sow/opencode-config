@@ -7,7 +7,13 @@
   "version": 6,
   "sidebar": {
     "show": true,
-    "sessionTokens": false
+    "sessionTokens": true,
+    "runsOut": false,
+    "hidden": [
+      "quota-providers.custom.openrouter-spend.OpenRouter_Credits",
+      "quota-providers",
+      "openai.weekly"
+    ]
   },
   "toast": {
     "show": false,
@@ -75,6 +81,11 @@
           ]
         }
       }
+    ]
+  },
+  "collapsed": {
+    "hidden": [
+      "quota-providers"
     ]
   }
 }
