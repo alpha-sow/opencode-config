@@ -151,6 +151,20 @@
         },
         "disabled": false
       },
+      "sonarqube": {
+        "type": "local",
+        "command": [
+          "java",
+          "-jar",
+          "{env:HOME}/.local/share/sonarqube-mcp/sonarqube-mcp-server.jar"
+        ],
+        "environment": {
+          "SONARQUBE_URL": "{env:SONARQUBE_ENTREPRISE_MCP_URL}",
+          "SONARQUBE_TOKEN": "{env:SONARQUBE_ENTREPRISE_TOKEN}",
+          "STORAGE_PATH": "{env:HOME}/.local/share/sonarqube-mcp/data"
+        },
+        "enabled": true
+      },
       "repomix": {
         "type": "local",
         "command": ["npx", "-y", "repomix", "--mcp"],
