@@ -43,7 +43,8 @@
       "xiaomi",
       "opencode-go",
       "opencode",
-      "ollama-cloud"
+      "ollama-cloud",
+      "custom"
     ],
     "custom": [
       {
