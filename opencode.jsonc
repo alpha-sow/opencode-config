@@ -128,11 +128,12 @@
           "/Users/alphasow/redmine-mcp/.venv/bin/python",
           "/Users/alphasow/redmine-mcp/server.py"
         ],
-        "enabled": true
+        "disabled": true
       },
       "rydmike-flex_color_scheme_docs": {
         "type": "remote",
-        "url": "https://docs.flexcolorscheme.com/mcp"
+        "url": "https://docs.flexcolorscheme.com/mcp",
+        "disabled": true
       },
       "context7": {
         "type": "remote",
@@ -149,7 +150,7 @@
         "headers": {
           "Authorization": "Bearer {env:SONARQUBE_TOKEN}"
         },
-        "disabled": false
+        "disabled": true
       },
       "sonarqube": {
         "type": "local",
@@ -163,7 +164,7 @@
           "SONARQUBE_TOKEN": "{env:SONARQUBE_ENTREPRISE_TOKEN}",
           "STORAGE_PATH": "{env:HOME}/.local/share/sonarqube-mcp/data"
         },
-        "enabled": true
+        "disabled": true
       },
       "repomix": {
         "type": "local",
