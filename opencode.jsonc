@@ -135,6 +135,14 @@
         "url": "https://docs.flexcolorscheme.com/mcp",
         "disabled": true
       },
+      "intellij-idea": {
+        "type": "remote",
+        "disabled": true,
+        "url": "http://127.0.0.1:64342/stream",
+        "headers": {
+          "IJ_MCP_SERVER_PROJECT_PATH": "/Users/alphasow/wiser/range-analysis/backend"
+        }
+      },
       "context7": {
         "type": "remote",
         "url": "https://mcp.context7.com/mcp",
