@@ -11,8 +11,7 @@
     "runsOut": false,
     "hidden": [
       "quota-providers.custom.openrouter-spend.OpenRouter_Credits",
-      "quota-providers",
-      "openai.weekly"
+      "quota-providers"
     ]
   },
   "toast": {
@@ -26,7 +25,6 @@
   "providers": {
     "off": [
       "anthropic",
-      "openrouter",
       "cursor",
       "alibaba-coding-plan",
       "alibaba-token-plan",
@@ -88,5 +86,8 @@
     "hidden": [
       "quota-providers"
     ]
+  },
+  "layout": {
+    "indent": 1
   }
 }
