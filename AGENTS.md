@@ -1456,6 +1456,14 @@ Examples:
 
 When uncertain whether an operation is destructive, treat it as destructive.
 
+# Interactive Task Tracking
+
+* Before any implementation change, use `todowrite` to create an ordered, verifiable list of the required steps, including validation. Group related steps rather than creating unnecessary atomic tasks.
+* During implementation, set the active step to `in_progress`, then to `completed` only when it is actually finished. Update the list if the plan changes.
+* Call `todowrite` only when the list changes, and provide the complete list with every call: it replaces the previous list and populates the sidebar.
+* Before finishing, verify that all steps are complete or clearly report any blockers. Do not duplicate the TODO list as Markdown in the chat.
+* Purely explanatory tasks and trivial changes without actual implementation may skip the TODO list.
+
 # Code & Execution Standards
 
 ## Production-Ready Code
