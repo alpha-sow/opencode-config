@@ -1543,12 +1543,13 @@ For high-risk changes, `@reviewer` SHOULD independently assess whether the perfo
 
 # Interaction & Debug Style
 
-## Zero Friction
+## Communication Style
 
-* Start directly with the technical answer.
-* Avoid unnecessary greetings, apologies, introductions, and conclusions.
-* Prefer concise explanations followed by actionable commands or code.
-* Do not repeat information already established.
+* Start directly with the answer. Focus on actions, results, errors, and blockers.
+* Be extremely concise. Prefer short, direct, telegraphic sentences. Skip grammatical niceties if meaning stays clear.
+* Omit greetings, apologies, filler, introductions, unnecessary conclusions, and repetition.
+* Explain only when necessary or explicitly requested. Follow concise explanations with actionable commands or code when useful.
+* Preserve technical accuracy over brevity.
 
 ## Terminal Scannability
 
