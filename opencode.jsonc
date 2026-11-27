@@ -128,8 +128,8 @@
        "redmine": {
         "type": "local",
         "command": [
-          "/Users/alphasow/redmine-mcp/.venv/bin/python",
-          "/Users/alphasow/redmine-mcp/server.py"
+          "{env:HOME}/redmine-mcp/.venv/bin/python",
+          "{env:HOME}/redmine-mcp/server.py"
         ],
         "disabled": true
       },
@@ -143,7 +143,15 @@
         "disabled": true,
         "url": "http://127.0.0.1:64342/stream",
         "headers": {
-          "IJ_MCP_SERVER_PROJECT_PATH": "/Users/alphasow/wiser/range-analysis/backend"
+          "IJ_MCP_SERVER_PROJECT_PATH": "{env:HOME}/wiser/range-analysis/backend"
+        }
+      },
+      "datagrip-ide": {
+        "type": "remote",
+        "disabled": true,
+        "url": "http://127.0.0.1:64402/stream",
+        "headers": {
+          "IJ_MCP_SERVER_PROJECT_PATH": "{env:HOME}/DataGripProjects/default"
         }
       },
       "context7": {
@@ -198,28 +206,31 @@
     }
   },
   "lsp": {
-    "typescript-lsp": {
-      "command": ["typescript-language-server", "--stdio"],
+    "typescript": {
+      "command": ["/opt/homebrew/bin/typescript-language-server", "--stdio"],
+      "initialization": { "tsserver": { "path": "{env:HOME}/.local/share/opencode-ts/node_modules/typescript/lib/tsserver.js" } },
       "extensions": [".ts", ".tsx", ".js", ".jsx"]
     },
-    "dart-lsp": {
-      "command": ["dart", "language-server"],
+    "dart": {
+      "command": ["{env:HOME}/develop/flutter/bin/dart", "language-server", "--protocol=lsp"],
       "extensions": [".dart"]
     },
-    "java-lsp": {
-      "command": ["jdtls"],
+    "jdtls": {
+      "command": ["/opt/homebrew/bin/jdtls"],
       "extensions": [".java"]
     },
-    "kotlin-lsp": {
-      "command": ["kotlin-language-server"],
+    "kotlin-ls": {
+      "command": ["/opt/homebrew/bin/kotlin-language-server"],
+      "env": { "JAVA_HOME": "/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home" },
       "extensions": [".kt", ".kts"]
     },
-    "swift-lsp": {
-      "command": ["xcrun", "sourcekit-lsp"],
+    "sourcekit-lsp": {
+      "command": ["/usr/bin/xcrun", "sourcekit-lsp"],
       "extensions": [".swift"]
     }
   },
   "plugins": [
+    "{env:HOME}/opencode-v2-lsp-support",
     "@tarquinen/opencode-dcp@3.2.0",
     "@slkiser/opencode-quota@6.0.0",
     "@dietrichgebert/ponytail@5.1.0",
@@ -227,9 +238,7 @@
   ],
   "providers": {
     "openrouter": {},
-    // Detected openai authentication; opencode-quota added this global provider declaration.
     "openai": {},
-    // Ollama local model provider
     "ollama": {
       "package": "aisdk:@ai-sdk/openai",
       "settings": {
@@ -247,7 +256,6 @@
     "~/.config/opencode/rules/*.md"
   ],
   "provider": {
-    // Detected copilot authentication; opencode-quota added this global provider declaration.
     "copilot": {}
   }
 }
