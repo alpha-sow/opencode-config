@@ -11,7 +11,9 @@
     "runsOut": false,
     "hidden": [
       "quota-providers.custom.openrouter-spend.OpenRouter_Credits",
-      "quota-providers"
+      "quota-providers",
+      "openrouter.key",
+      "openrouter"
     ]
   },
   "toast": {
@@ -84,10 +86,19 @@
   },
   "collapsed": {
     "hidden": [
-      "quota-providers"
-    ]
+      "quota-providers",
+      "openrouter"
+    ],
+    "window": {
+      "openai": "five_hour"
+    }
   },
   "layout": {
     "indent": 1
+  },
+  "statusLine": {
+    "hidden": [
+      "openrouter"
+    ]
   }
 }
